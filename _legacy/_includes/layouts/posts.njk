@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+---
+
+{% set last_year = -1 %}
+
+{{ collections | length }}
+
+{{ collections.posts }}
+{% for each in collections.posts %}
+  {{ each.data.title }}
+{% endfor %}
+
+<section class="postlist">
+  {% if page.url == "/"%}{% endif %}
+  {% for post in collections.posts %}
+    {% set curr_year = post.date | get_year %}
+    {% if curr_year != last_year %}
+      {{ curr_year }}
+    {% endif %}
+    {% set last_year = curr_year %}
+    {{ curr_year }}
+  {% endfor %}
+</section>
+<span>{{ "2022-12-27" | get_year }}</span>

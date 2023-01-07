@@ -1,0 +1,32 @@
+{
+  "name": "bookshelf",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build:stylus": "stylus --compress src/stylus/main.styl --out assets/css/main.css",
+    "serve:stylus": "stylus src/stylus/main.styl --out assets/css/main.css -w",
+    "build:eleventy": "eleventy",
+    "serve:eleventy": "eleventy --serve",
+    "build": "ELEVENTY_ENV=production npm-run-all build:*",
+    "serve": "npm-run-all build:stylus --parallel serve:*",
+    "deploy": "eleventy --output='docs'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShapeLayer/bookshelf.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShapeLayer/bookshelf/issues"
+  },
+  "homepage": "https://github.com/ShapeLayer/bookshelf#readme",
+  "dependencies": {
+    "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "npm-run-all": "^4.1.5",
+    "stylus": "^0.59.0"
+  }
+}

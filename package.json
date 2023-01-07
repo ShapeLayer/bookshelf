@@ -9,24 +9,34 @@
     "serve:eleventy": "eleventy --serve",
     "build": "ELEVENTY_ENV=production npm-run-all build:*",
     "serve": "npm-run-all build:stylus --parallel serve:*",
-    "deploy": "eleventy --output='docs'"
+    "start": "npm-run-all serve",
+    "deploy": "npm-run-all build --output:docs",
+    "debug": "DEBUG=* npx @11ty/eleventy"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ShapeLayer/bookshelf.git"
+    "url": "git://github.com/ShapeLayer/bookshelf.git"
   },
-  "author": "",
+  "author": {
+    "name": "Park, Jonghyeon",
+    "email": "me@jonghyeon.me",
+    "url": "https://jonghyeon.me/"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ShapeLayer/bookshelf/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/ShapeLayer/bookshelf#readme",
+  "homepage": "",
   "dependencies": {
-    "yarn": "^1.22.19"
-  },
-  "devDependencies": {
-    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy": "^1.0.1",
+    "@11ty/eleventy-navigation": "^0.3.3",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
+    "luxon": "^2.4.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-anchor": "^8.6.4",
     "npm-run-all": "^4.1.5",
-    "stylus": "^0.59.0"
+    "stylus": "^0.59.0",
+    "yarn": "^1.22.19"
   }
 }

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      {%- if title -%}
+      {{ title }} - {{ base.title }}
+      {%- else -%}
+      {{ base.title }}
+      {%- endif -%}
+    </title>
+    {% include 'includes/head.njk' %}
+  </head>
+  <body>
+    {% include 'includes/nav.njk' %}
+    <main>
+      {{ content | safe }}
+    </main>
+  </body>
+</html>
