@@ -10,7 +10,8 @@
     "build": "ELEVENTY_ENV=production npm-run-all build:*",
     "serve": "npm-run-all build:stylus --parallel serve:*",
     "start": "npm-run-all serve",
-    "deploy": "npm-run-all build --output:docs",
+    "deploy:build": "eleventy --output=docs",
+    "deploy": "ELEVENTY_ENV=production npm-run-all build:stylus deploy:build",
     "debug": "DEBUG=* npx @11ty/eleventy"
   },
   "repository": {
