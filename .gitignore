@@ -1,5 +1,5 @@
 assets/
-!assets/img/
+!docs/assets
 .DS_Store
 
 # Generated files
