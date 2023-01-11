@@ -1,0 +1,23 @@
+{% set last_year = -1 %}
+
+<ul class="cards">
+  {% for post in postslist | reverse %}
+    {% set curr_year = post.data | get_year %}
+    {# {% if curr_year != last_year %}{{ curr_year }}{% endif %} #}
+    <li class="card">
+      <a href="{{ post.url | url }}">
+        <div class="card__image-container">
+          <img src="{{ post.data.book.cover }}" alt="{{ post.title }} 표지">
+        </div>
+        <div class="card__content">
+          <p class="card__title text--medium">{{ post.data.title }}</p>
+          <div class="card__info">
+            <p class="text-medium">{{ post.data.date }}</p>
+            <p class="text-medium">{{ post.data.book.subtitle }}</p>
+          </div>
+        </div>
+      </a>
+    </li>
+    {% set last_year = curr_year %}
+  {% endfor %}
+</ul>

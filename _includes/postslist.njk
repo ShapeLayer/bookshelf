@@ -1,5 +1,15 @@
-<ol reversed class="postlist" style="counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }}">
+{% set last_year = -1 %}
+
+<div class="postslist">
 {% for post in postslist | reverse %}
+  {% set curr_year = post.date | get_year %}
+  {% if curr_year != last_year %}
+    <div class="year {{ curr_year }}">
+      <h3>{{ curr_year }}</h3>
+    </div>
+  {% endif %}
+
+  <!--
   <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
     <a href="{{ post.url | url }}" class="postlist-link">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
     <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
@@ -8,5 +18,22 @@
       <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
     {% endfor %}
   </li>
+  -->
+
+  <div class="postcard">
+    {% if post.data.book.cover %}
+      <a href="{{ post.url | url }}">
+        <img class="bookcover" src="{{ post.data.book.cover }}" />
+      </a>
+    {% endif %}
+    <p class="booktitle"><a href="{{ post.data.url | url }}">
+      {% if post.data.book.title %}
+        {{ post.data.book.title }}
+      {% else %}
+        {{ post.data.title }}
+      {% endif %}
+    </a></p>
+  </div>
+  {% set last_year = curr_year %}
 {% endfor %}
-</ol>
+</div>
