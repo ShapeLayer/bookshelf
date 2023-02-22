@@ -1,3 +1,11 @@
+main
+  @media only screen and (max-width: 700px)
+    grid-gap: 20px
+  
+  @media only screen and (max-width: 500px)
+    grid-template-columns: 10px repeat(6, 1fr) 10px
+    grid-gap: 10px
+  
 .cards
   display: grid
   grid-column: 2 / span 12
@@ -5,12 +13,16 @@
   grid-gap: 40px
   list-style: none
   padding: 0
+  @media only screen and (max-width: 500px)
+    grid-column: 2 / span 6
+    grid-template-columns: repeat(8, 1fr)
+    grid-gap: 20px
 
 .card
   grid-column-end: span 4
   display: flex
   flex-direction: column
-  background-color: fff
+  background-color: rgb(250, 250, 250)
   cursor: pointer
   transition: all .3s ease 0s
   a
@@ -45,7 +57,7 @@
   padding: 20px
 
 .card__title
-  margin-bottom: 20px
+  margin-bottom: 1.1em
 
 .card__price
   margin-left: auto
@@ -53,19 +65,9 @@
   background-color: #303032
   border-radius: 20px
 
-  
-@media only screen and (max-width: 700px)
-  main
-    grid-gap: 20px
-  
-@media only screen and (max-width: 500px)
-  main
-    grid-template-columns: 10px repeat(6, 1fr) 10px
-    grid-gap: 10px
-  
-  .cards
-    grid-column: 2 / span 6
-    grid-template-columns: repeat(6, 1fr)
-    grid-gap: 20px
-  
+.post__date
+  font-size: .5em
+
+.post__subtitle
+  font-size: .75em
 
